@@ -91,7 +91,7 @@ export async function GET(req: Request) {
         where: whereExpr,
         orderBy: [desc(orders.createdAt)],
       })
-      const mapped = orderRows.map((o) => ({
+      const mapped = orderRows.map((o: any) => ({
         orderId: o.orderId,
         username: o.username,
         email: includeSecrets ? o.email : null,
@@ -143,7 +143,7 @@ export async function GET(req: Request) {
 
     if (type === "products") {
       const rows = await getProducts()
-      const mapped = rows.map((p) => ({
+      const mapped = rows.map((p: any) => ({
         id: p.id,
         name: p.name,
         description: p.description,
@@ -193,7 +193,7 @@ export async function GET(req: Request) {
       const rows = await db.query.reviews.findMany({
         orderBy: [desc(reviews.createdAt)],
       })
-      const mapped = rows.map((r) => ({
+      const mapped = rows.map((r: any) => ({
         id: r.id,
         productId: r.productId,
         orderId: r.orderId,
@@ -237,7 +237,7 @@ export async function GET(req: Request) {
       const rows = await db.query.settings.findMany({
         orderBy: [desc(settings.updatedAt)],
       })
-      const mapped = rows.map((s) => ({
+      const mapped = rows.map((s: any) => ({
         key: s.key,
         value: s.value,
         updatedAt: s.updatedAt,

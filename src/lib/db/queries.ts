@@ -129,12 +129,12 @@ export async function getDashboardStats() {
             where: eq(orders.status, 'delivered')
         });
 
-        const todayOrders = allOrders.filter(o => o.paidAt && new Date(o.paidAt) >= todayStart);
-        const weekOrders = allOrders.filter(o => o.paidAt && new Date(o.paidAt) >= weekStart);
-        const monthOrders = allOrders.filter(o => o.paidAt && new Date(o.paidAt) >= monthStart);
+        const todayOrders = allOrders.filter((o: any) => o.paidAt && new Date(o.paidAt) >= todayStart);
+        const weekOrders = allOrders.filter((o: any) => o.paidAt && new Date(o.paidAt) >= weekStart);
+        const monthOrders = allOrders.filter((o: any) => o.paidAt && new Date(o.paidAt) >= monthStart);
 
         const sumAmount = (orders: typeof allOrders) =>
-            orders.reduce((sum, o) => sum + parseFloat(o.amount), 0);
+            orders.reduce((sum: number, o: any) => sum + parseFloat(o.amount), 0);
 
         return {
             today: { count: todayOrders.length, revenue: sumAmount(todayOrders) },

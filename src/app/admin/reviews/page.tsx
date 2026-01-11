@@ -23,7 +23,7 @@ export default async function AdminReviewsPage() {
 
   return (
     <AdminReviewsContent
-      reviews={rows.map((r) => ({
+      reviews={rows.map((r: any) => ({
         id: r.id,
         productId: r.productId,
         productName: r.productName || r.productId,
