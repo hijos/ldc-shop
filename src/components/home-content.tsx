@@ -324,6 +324,9 @@ export function HomeContent({ products, announcement, visitorCount, categories: 
                                                 {Number(product.compareAtPrice)}
                                             </span>
                                         )}
+                                        <span className="text-[10px] text-muted-foreground mt-0.5">
+                                            {t('common.stock')}: {product.stockCount}
+                                        </span>
                                     </div>
 
                                     <Link href={`/buy/${product.id}`}>
